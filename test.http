@@ -1,0 +1,25 @@
+GET http://localhost:3030/users
+########
+POST http://localhost:3030/users HTTP/1.1
+content-type: application/json
+
+{
+    "userName":"valeggggtbtbbntina",
+    "email":"ciao@emtrrrrrail.it",
+    "password":"pabsspss11",
+    "firstName": "gnagna",
+    "lastName": "djlijld"
+}
+######
+DELETE http://localhost:3030/users/6362c079c4e769d526d8b4aa HTTP/1.1
+######
+PATCH http://localhost:3030/users/6362c487fbecba4b1e8c7c56 HTTP/1.1
+content-type: application/json
+
+{
+    "userName":"valeXXX"
+}
+
+#####
+
+

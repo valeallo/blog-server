@@ -1,0 +1,28 @@
+GET http://localhost:3030/posts
+########
+POST http://localhost:3030/posts HTTP/1.1
+content-type: application/json
+
+{
+    "title":"passpss11", 
+    "img": "https://picsum.photos/400",
+    "body":"valentina",
+    "author":"ciao",
+    "featured" : false,
+    "category": "lifestyle"  
+}
+######
+DELETE http://localhost:3030/posts/63640d5405add42fbe4d4182 HTTP/1.1
+######
+PATCH http://localhost:3030/posts/63640d7c05add42fbe4d4185 HTTP/1.1
+content-type: application/json
+
+{
+    "title":"valeXXX"
+}
+#####
+GET http://localhost:3030/posts/63640f7a4df2441125aaf0cc
+#####
+GET http://localhost:3030/posts/featured
+#####
+GET http://localhost:3030/featured
