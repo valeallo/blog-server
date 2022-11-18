@@ -22,4 +22,25 @@ content-type: application/json
 
 #####
 
+POST http://localhost:3030/login/userName
+content-type: application/json
 
+{
+    "userName": "valettbbntina"
+}
+#####
+POST http://localhost:3030/login/password
+content-type: application/json
+
+{
+    "password": "pabsspss11"
+}
+
+#####
+POST http://localhost:3030/login
+content-type: application/json
+
+{
+    "email": "ciao@emtail.it",
+    "password": "pabsspss11"
+}

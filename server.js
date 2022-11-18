@@ -2,18 +2,19 @@ const express = require("express")
 const mongoose = require("mongoose")
 const userRoute = require("./routes/users")
 const postRoute = require("./routes/posts")
+require("dotenv").config()
 
 const cors = require("cors")
-const PORT = 3030
+const PORT = process.env.PORT
 
 const app = express()
-app.use(cors())
-app.use(express.json())
+app.use(cors()) //posso specificare quali indirizzi voglio così : {origin: "url"}
+app.use(express.json()) //body parser(???)
 app.use("/", userRoute)
 app.use("/", postRoute)
 
 
-mongoose.connect("mongodb+srv://vale:mongoDB1234@blogdb.1ikwt15.mongodb.net/blogDB?retryWrites=true&w=majority")
+mongoose.connect(process.env.DB_ADDRESS)
 const db = mongoose.connection
 db.on("error", () => {
     console.error.bind(console, "errore di connessione")

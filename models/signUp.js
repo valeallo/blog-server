@@ -13,13 +13,13 @@ const SignUpSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        // required: true,
-        // min: 10
+        required: true,
+        
     },
     password: {
         type: String,
-        // required: true,
-        // min: 8
+        required: true,
+        
     },
      
 

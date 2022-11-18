@@ -3,14 +3,37 @@ const router = express.Router();
 const Posts = require("../models/posts");
 
 router.get("/posts", async (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
+
   try {
-    const posts = await Posts.find();
+    const posts = await Posts.find()
+    .limit(limit * 1)
+    .skip((page - 1) * limit)
+    const count = await Posts.countDocuments();
     res.status(200).send(posts);
   } catch (error) {
     res.status(500).send({
       message: "an error has occurred",
     });
   }
+});
+
+router.get("/posts/:id", async (req, res) => {
+  const {id} = req.params
+    try{
+        const post = await Posts.findById(id)
+        if (!post)
+        return res
+            .status(404)
+            .send(`post with id ${id} not found`)
+        res.status(200).send(post)
+    }
+    catch(error){
+        res.status(500).send({
+            message: "an error has occurred",
+            error: error
+        })
+    }
 });
 
 router.post("/posts", async(req, res) => {
@@ -37,7 +60,7 @@ router.post("/posts", async(req, res) => {
 });
 
 
-router.delete("/posts/:id", async (req, res) => {
+router.delete("/posts/del/:id", async (req, res) => {
     const {id} = req.params
     try{
         const post = await Posts.findById(id).deleteOne()
@@ -110,6 +133,22 @@ router.get("/posts/:id", async (req, res) => {
             error: error
         })
     }
+})
+
+
+router.get('/post/type', async (req,res)=>{
+    const { featured } = req.query
+  try {
+    console.log(req.query)
+      const posts = await Posts.find({featured: featured})
+      console.log(posts)
+      res.status(200).send(posts)
+  } catch (error) {
+      res.status(500).send({
+          message:'an error has occurred',
+          error: error
+      })
+  }
 })
 
 

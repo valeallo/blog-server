@@ -4,15 +4,15 @@ POST http://localhost:3030/posts HTTP/1.1
 content-type: application/json
 
 {
-    "title":"passpss11", 
-    "img": "https://picsum.photos/400",
-    "body":"valentina",
-    "author":"ciao",
-    "featured" : false,
+    "title":"This is a good post", 
+    "img": "https://picsum.photos/id/22/800",
+    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dignissim egestas nisl a ullamcorper. Curabitur eget tempus neque. Praesent non imperdiet felis, sit amet elementum augue. Cras rutrum, sem a scelerisque suscipit, nulla lorem mollis diam, eu varius arcu nisi at massa. Duis auctor quam nulla, ut gravida risus malesuada in. Mauris et purus metus. Aenean consequat libero sapien, sit amet lobortis mi sagittis et. Aliquam erat volutpat. Sed vel eros ac quam volutpat semper vel ut velit.",
+    "author":"SonoIoLaaaa",
+    "featured" : true,
     "category": "lifestyle"  
 }
 ######
-DELETE http://localhost:3030/posts/63640d5405add42fbe4d4182 HTTP/1.1
+DELETE http://localhost:3030/posts/del/636a585d654a7a881d84e031 HTTP/1.1
 ######
 PATCH http://localhost:3030/posts/63640d7c05add42fbe4d4185 HTTP/1.1
 content-type: application/json
@@ -22,7 +22,13 @@ content-type: application/json
 }
 #####
 GET http://localhost:3030/posts/63640f7a4df2441125aaf0cc
-#####
-GET http://localhost:3030/posts/featured
+
 #####
 GET http://localhost:3030/featured
+####
+GET http://localhost:3030/post/type?featured=false
+####
+GET http://localhost:3030/posts?limit=3&page=1
+#####
+GET http://localhost:3030/posts/636bf26d0e39e99de72a89f4
+######
