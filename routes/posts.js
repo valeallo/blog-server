@@ -125,7 +125,6 @@ router.get("/posts/:id", async (req, res) => {
   router.get('/featured', async (req,res)=>{
     try {
         const posts = await Posts.find({featured:true})
-        console.log(posts)
         res.status(200).send(posts)
     } catch (error) {
         res.status(500).send({

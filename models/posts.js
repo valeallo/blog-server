@@ -9,7 +9,7 @@ const PostSchema = new mongoose.Schema({
   img: {
     type: String,
     required: false,
-    default: "https://picsum.photos/400"
+    default: "https://picsum.photos/800"
   },
   body: {
     type: String,

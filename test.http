@@ -4,9 +4,9 @@ POST http://localhost:3030/users HTTP/1.1
 content-type: application/json
 
 {
-    "userName":"valeggggtbtbbntina",
-    "email":"ciao@emtrrrrrail.it",
-    "password":"pabsspss11",
+    "userName":"valennna",
+    "email":"io@email.it",
+    "password":"ciaociao",
     "firstName": "gnagna",
     "lastName": "djlijld"
 }
@@ -37,10 +37,11 @@ content-type: application/json
 }
 
 #####
-POST http://localhost:3030/login
+POST http://localhost:3030/login HTTP/1.1
 content-type: application/json
 
 {
-    "email": "ciao@emtail.it",
-    "password": "pabsspss11"
+    "email":"io@email.it",
+    "password":"ciaociao"
 }
+######
