@@ -77,6 +77,7 @@ router.patch("/users/:id", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const user = await Users.findOne({ email: req.body.email })
+  try{
   if (!user) {
     return res.status(404).send({
       message: "Email not found",
@@ -94,7 +95,13 @@ router.post("/login", async (req, res) => {
       email: user.email,
       userName: user.userName
     },
-  });
+  });}
+  catch (error){
+    res.status(500).send({
+      message: "an error has occurred",
+      error: error,
+    });
+  }
 });
 
 module.exports = router;
