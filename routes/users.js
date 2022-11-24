@@ -44,7 +44,7 @@ router.delete("/users/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const user = await Users.findById(id).deleteOne();
-    if (!user) return res.status(404).send(`user with id ${id} not found`);
+    if (!user) {return res.status(404).send(`user with id ${id} not found`)}
     res.status(200).send(`user ${id} deleted successfully`);
   } catch (error) {
     res.status(500).send({
@@ -61,7 +61,7 @@ router.patch("/users/:id", async (req, res) => {
     const options = { new: true };
 
     const result = await Users.findByIdAndUpdate(id, updateUser, options);
-    if (!result) return res.status(404).send(`user with id ${id} not found`);
+    if (!result) {return res.status(404).send(`user with id ${id} not found`);}
 
     res.status(200).send({
       message: "user info updated successfully",
@@ -77,7 +77,7 @@ router.patch("/users/:id", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const user = await Users.findOne({ email: req.body.email })
-  try{
+  
   if (!user) {
     return res.status(404).send({
       message: "Email not found",
@@ -95,13 +95,10 @@ router.post("/login", async (req, res) => {
       email: user.email,
       userName: user.userName
     },
-  });}
-  catch (error){
-    res.status(500).send({
-      message: "an error has occurred",
-      error: error,
-    });
-  }
+  });
+  
+
+  
 });
 
 module.exports = router;
