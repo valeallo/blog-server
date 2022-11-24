@@ -14,7 +14,10 @@ app.use("/", userRoute)
 app.use("/", postRoute)
 
 
-mongoose.connect(process.env.DB_ADDRESS)
+mongoose.connect(process.env.DB_ADDRESS, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
 const db = mongoose.connection
 db.on("error", () => {
     console.error.bind(console, "errore di connessione")
