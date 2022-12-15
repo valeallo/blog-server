@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Users = require("../models/users");
 const Bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken")
 
 router.get("/users", async (req, res) => {
   try {
@@ -89,13 +90,12 @@ router.post("/login", async (req, res) => {
       message: "Wrong Password",
     });
   }
-  res.status(200).send({
-    message: "Hello, you are logged in",
-    payload: {
-      email: user.email,
-      userName: user.userName
-    },
-  });
+  const token = jwt.sign({email: user.email}, process.env.TOKEN_SECRET, {expiresIn: '24h' })
+  res.header('authorization', token).status(200).send({
+    email: user.email,
+    token: token
+  })
+  
   
 
   

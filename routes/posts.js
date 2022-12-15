@@ -22,10 +22,10 @@ router.get("/posts/:id", async (req, res) => {
   const {id} = req.params
     try{
         const post = await Posts.findById(id)
-        if (!post)
+        if (!post){
         return res
             .status(404)
-            .send(`post with id ${id} not found`)
+            .send(`post with id ${id} not found`)}
         res.status(200).send(post)
     }
     catch(error){
@@ -64,10 +64,10 @@ router.delete("/posts/del/:id", async (req, res) => {
     const {id} = req.params
     try{
         const post = await Posts.findById(id).deleteOne()
-        if (!post)
+        if (!post){
         return res
             .status(404)
-            .send(`post with id ${id} not found`)
+            .send(`post with id ${id} not found`)}
         res.status(200).send(`post ${id} deleted successfully`)
     }
     catch(error){
@@ -86,10 +86,10 @@ router.patch("/posts/:id", async(req, res)=>{
         const options = {new: true}
 
         const result = await Posts.findByIdAndUpdate(id, updatePost, options)
-        if(!result)
+        if(!result){
             return res
                 .status(404)
-                .send(`post with id ${id} not found`)
+                .send(`post with id ${id} not found`)}
                 
         res.status(200).send({
             message: "post info updated successfully",
@@ -110,10 +110,10 @@ router.get("/posts/:id", async (req, res) => {
     const {id} = req.params
     try {
       const post = await Posts.findById(id);
-      if (!post)
+      if (!post){
       return res
           .status(404)
-          .send(`post with id ${id} not found`)
+          .send(`post with id ${id} not found`)}
       res.status(200).send(post);
     } catch (error) {
       res.status(500).send({
