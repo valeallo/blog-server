@@ -1,13 +1,13 @@
 GET http://localhost:3030/users
 ########
-POST http://localhost:3030/users HTTP/1.1
+POST  http://localhost:3030/users   HTTP/1.1
 content-type: application/json
 
 {
-    "userName":"valennna",
-    "email":"io@email.it",
-    "password":"ciaociao",
-    "firstName": "gnagna",
+    "userName":"valljlnna",
+    "email":"io@eilllj.it",
+    "password":"ciaiao",
+    "firstName": "gnana",
     "lastName": "djlijld"
 }
 ######
