@@ -4,9 +4,9 @@ POST  http://localhost:3030/users   HTTP/1.1
 content-type: application/json
 
 {
-    "userName":"valljlnna",
-    "email":"io@eilllj.it",
-    "password":"ciaiao",
+    "userName":"valuuuna",
+    "email":"ixxo@exxxilllj.it",
+    "password":"cixaiao",
     "firstName": "gnana",
     "lastName": "djlijld"
 }
@@ -41,6 +41,7 @@ POST http://localhost:3030/login HTTP/1.1
 content-type: application/json
 
 {
-    "password":"ciaociao"
+    "email":"ixxo@exxxilllj.it",
+    "password":"cixaiao"
 }
 ######

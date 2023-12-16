@@ -5,7 +5,7 @@ const postRoute = require("./routes/posts")
 require("dotenv").config()
 
 const cors = require("cors")
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3030
 
 const app = express()
 app.use(cors()) //posso specificare quali indirizzi voglio così : {origin: "url"}
